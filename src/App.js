@@ -1,37 +1,51 @@
-import Header from "./Componets/Header";
-import Home from "./Componets/Home";
-import Explore from "./Componets/Explore";
-import Event from "./Componets/Event";
-import About from "./Componets/About";
-import Twiter from "./Componets/Twiter";
-import Sponsor from "./Componets/Sponsor";
-import Contact from "./Componets/Contact";
-import Footer from "./Componets/Footer";
+import {useEffect} from 'react';
+
+import * as eventService from './services/eventService';
+
+import Header from "./componets/Header";
+import Home from "./componets/Home";
+import Explore from "./componets/Explore";
+import Event from "./componets/Events";
+import About from "./componets/About";
+import Twiter from "./componets/Twiter";
+import Sponsor from "./componets/Sponsor";
+import Contact from "./componets/Contact";
+import Footer from "./componets/Footer";
 
 function App() {
+  useEffect(() => {
+    eventService.getAll()
+       .then(events => {
+        console.log(events);
+       })
+       .catch(err =>{
+        console.log('Error' + err);
+       });
+  },[]);
+
   return (
     <>
 
-    <Header />
+      <Header />
 
-    <Home />
-    
-    <Explore />
-    
-    <Event />
-    
-    <About />
+      <Home />
 
-    <Twiter />
-    
-   <Sponsor />
-   
-   <Contact />
+      <Explore />
 
-   <Footer />
+      <Event />
 
-  </>
-  
+      <About />
+
+      <Twiter />
+
+      <Sponsor />
+
+      <Contact />
+
+      <Footer />
+
+    </>
+
   );
 }
 
