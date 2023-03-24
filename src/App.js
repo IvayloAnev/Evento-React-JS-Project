@@ -1,4 +1,5 @@
-import {useEffect} from 'react';
+import { Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react';
 
 import * as eventService from './services/eventService';
 
@@ -15,34 +16,32 @@ import Footer from "./componets/Footer";
 function App() {
   useEffect(() => {
     eventService.getAll()
-       .then(events => {
+      .then(events => {
         console.log(events);
-       })
-       .catch(err =>{
+      })
+      .catch(err => {
         console.log('Error' + err);
-       });
-  },[]);
+      });
+  }, []);
 
   return (
     <>
 
+
       <Header />
+      <Routes>
 
-      <Home />
+        <Route path='/' element={<Home />} />
+        <Route path='/explore' element={<Explore />} />
+        <Route path='/event' element={<Event />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/twiter' element={<Twiter />} />
+        <Route path='/sponsor' element={<Sponsor />} />
+        <Route path='/contact' element={<Contact />} />
 
-      <Explore />
-
-      <Event />
-
-      <About />
-
-      <Twiter />
-
-      <Sponsor />
-
-      <Contact />
-
+      </Routes>
       <Footer />
+
 
     </>
 
