@@ -35,7 +35,7 @@ export default function Header() {
                   <span className="icon-bar" />
                   <span className="icon-bar" />
                 </button>
-                <a className="navbar-brand" href="index.html">
+                <a className="navbar-brand" href="/">
                   <img
                     className="img-responsive"
                     src="images/logo.png"
@@ -61,7 +61,7 @@ export default function Header() {
                     <Link to="/twitter">Twitter</Link>
                   </li>
                   <li>
-                    <Link className="no-scroll"  to="#" target="_blank">
+                    <Link className="no-scroll"  to="/" target="_blank">
                       PURCHASE TICKETS
                     </Link>
                   </li>

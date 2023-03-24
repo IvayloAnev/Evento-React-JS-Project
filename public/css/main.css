@@ -9,7 +9,8 @@
 body {
   font-family: 'Dosis', sans-serif;
   font-size: 17px;
-  color: #fff
+  color: #fff;
+  
 }
 
 
@@ -180,10 +181,12 @@ h2 {
 #home {
   position: relative;
   overflow: hidden;
+ 
 }
 
 #main-slider img {
-  width: 100%
+  width: 100%;
+  
 }
 
 #main-slider 
@@ -193,11 +196,11 @@ h2 {
   float: left;
   left: 0;
   opacity: 0.8;
-  padding:10px 60px 35px;
   right: inherit;
   text-transform: uppercase;
   color: #fff;
   text-align: left;
+  padding:10px 50px 35px;
 }
 
 
@@ -262,13 +265,13 @@ h2 {
   background-repeat:no-repeat;
   position: relative;
   overflow: hidden;
-  padding: 130px 0 100px;
+  padding:   400px 600px 261px ;
 }
 
 .watch {
   position: absolute;
   left: 0;
-  top: 7%;
+  top: 28%;
 }
 
 #explore h2 {
@@ -394,11 +397,15 @@ h2 {
 #event {
   background-color: #33888F;
   background-image: url("../images/performar-bg.jpg");
-  background-position: 50% 0;
+  background-position: 100% 0 ;
   background-size: contain;
   position: relative;
   background-repeat: no-repeat;
+  padding:   150px 400px 107px ;
+  
 }
+
+
 
 .guitar {
   position: absolute;
@@ -466,6 +473,8 @@ h2 {
   position: relative;  
   width: 100%;
   display: flex;
+  padding:   200px 300px 96px ;
+
 }
 
 .guitar2 {
@@ -521,7 +530,7 @@ h2 {
   background-size: cover;
   background-repeat:no-repeat;
   position: relative;
-  padding: 95px 0 90px;
+  padding: 300px 0 302px;
   overflow: hidden;
 }
 
@@ -645,6 +654,7 @@ h2 {
 **************************/
 #map {
   position: relative;
+  padding: 1px 0 1px;
 }
 
 #gmap {
@@ -663,6 +673,7 @@ h2 {
   background-size:contain;
   background-repeat:no-repeat;  
   position: relative;
+  padding: 1px 0 1px;
 }
 
 .ear-piece {
@@ -746,7 +757,7 @@ h2 {
   background-size: cover;
   color: #FFFFFF;
   font-size: 20px;
-  padding: 35px 0;
+  padding: 10px 0;
 }
 
 #footer a {
