@@ -60,6 +60,9 @@ export default function Header() {
                   <li className="no-scroll">
                     <Link to="/twitter">Twitter</Link>
                   </li>
+                  <li className="no-scroll">
+                    <Link to="/login">Login</Link>
+                  </li>
                   <li>
                     <Link className="no-scroll"  to="/" target="_blank">
                       PURCHASE TICKETS
