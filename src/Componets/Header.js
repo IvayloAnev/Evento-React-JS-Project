@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 export default function Header() {
   return (
@@ -8,18 +8,18 @@ export default function Header() {
           <div className="container">
             <div className="header-top">
               <div className="pull-right social-icons">
-                <a href="#">
+                <Link to="#">
                   <i className="fa fa-twitter" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link to="#">
                   <i className="fa fa-facebook" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link  to="#">
                   <i className="fa fa-google-plus" />
-                </a>
-                <a href="#">
+                </Link>
+                <Link  to="#">
                   <i className="fa fa-youtube" />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="row">
@@ -46,27 +46,27 @@ export default function Header() {
               <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav navbar-right">
                   <li className="scroll active">
-                    <a href="#home">Home</a>
+                    <Link  to="/">Home</Link>
                   </li>
                   <li className="scroll">
-                    <a href="#explore">Explore</a>
+                    <Link  to="/explore">Explore</Link>
                   </li>
                   <li className="scroll">
-                    <a href="#event">Event</a>
+                    <Link  to="/event">Event</Link>
                   </li>
                   <li className="scroll">
-                    <a href="#about">About</a>
+                    <Link  to="/about">About</Link>
                   </li>
                   <li className="no-scroll">
-                    <a href="#twitter">Twitter</a>
+                    <Link to="/twitter">Twitter</Link>
                   </li>
                   <li>
-                    <a className="no-scroll" href="#" target="_blank">
+                    <Link className="no-scroll"  to="#" target="_blank">
                       PURCHASE TICKETS
-                    </a>
+                    </Link>
                   </li>
                   <li className="scroll">
-                    <a href="#contact">Contact</a>
+                    <Link  to="/contact">Contact</Link>
                   </li>
                 </ul>
               </div>

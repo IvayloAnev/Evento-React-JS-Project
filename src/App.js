@@ -8,7 +8,7 @@ import Home from "./componets/Home";
 import Explore from "./componets/Explore";
 import Event from "./componets/Events";
 import About from "./componets/About";
-import Twiter from "./componets/Twiter";
+import Twitter from "./componets/Twitter";
 import Sponsor from "./componets/Sponsor";
 import Contact from "./componets/Contact";
 import Footer from "./componets/Footer";
@@ -35,7 +35,7 @@ function App() {
         <Route path='/explore' element={<Explore />} />
         <Route path='/event' element={<Event />} />
         <Route path='/about' element={<About />} />
-        <Route path='/twiter' element={<Twiter />} />
+        <Route path='/twitter' element={<Twitter />} />
         <Route path='/sponsor' element={<Sponsor />} />
         <Route path='/contact' element={<Contact />} />
 
