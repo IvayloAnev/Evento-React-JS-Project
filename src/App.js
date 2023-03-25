@@ -28,6 +28,10 @@ function App() {
       })
   }, []);
 
+  const onCreateGameSubmit = async (data) => {
+   console.log(data);
+  };
+
 
   return (
     <>
@@ -44,7 +48,7 @@ function App() {
         <Route path='/sponsor' element={<Sponsor />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/create' element={<Create />} />
+        <Route path='/create' element={<Create onCreateGameSubmit={onCreateGameSubmit} />} />
 
       </Routes>
       <Footer />

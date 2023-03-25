@@ -1,71 +1,109 @@
+import { useState } from 'react';
 import styles from './create.module.css'
 
-export default function Create() {
+export default function Create({
+    onCreateGameSubmit,
+}) {
+    const [values, setValues] = useState({
+        name: '',
+        imgUrl: '',
+        location: '',
+        date: '',
+        hour: '',
+        description: '',
+        website: '',
+    });
+
+    const onChangeHandler = (e) => {
+        setValues(state => ({...state, [e.target.name]: e.target.value}))
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        onCreateGameSubmit(values);
+    };
+
     return (
         <section className={styles["create-form-container"]}>
-            <form action="/create" method="POST" id="create">
+            <form action="/create" method="POST" id="create" onSubmit={onSubmit}>
                 <h3>Add Event</h3>
                 <label htmlFor="name">Name</label>
                 <input
+                    value={values.name}
+                    onChange={onChangeHandler}
                     type="text"
-                    name="title"
-                    className={styles["box"]}   
+                    name="name"
+                    className={styles["box"]}
                     id="name"
-                    defaultValue=""
                     placeholder='Enter Event Name...'
                 />
-                <label htmlFor="author">Image</label>
+                <label htmlFor="imgUrl">Image</label>
                 <input
+                    value={values.imgUrl}
+                    onChange={onChangeHandler}
                     type="text"
-                    name="author"
+                    name="imgUrl"
                     className={styles["box"]}
-                    id="author"
-                    defaultValue=""
+                    id="imgUrl"
                     placeholder='Enter ImageUrl...'
                 />
-                <label>Location</label>
+                <label htmlFor="location">Location</label>
                 <input
+                    value={values.location}
+                    onChange={onChangeHandler}
                     type="text"
-                    name="gerne"
+                    name="location"
                     className={styles["box"]}
-                    id="gerne"
-                    defaultValue=""
+                    id="location"
                     placeholder='Enter Location...'
                 />
-                <label>Date</label>
+                <label htmlFor="date">Date</label>
                 <input
-                    type="number"
-                    name="stars"
+                    value={values.date}
+                    onChange={onChangeHandler}
+                    type="text"
+                    name="date"
                     className={styles["box"]}
-                    id="stars"
-                    defaultValue=""
+                    id="date"
                     placeholder='Enter Date...'
                 />
-                <label>Description</label>
+                <label htmlFor="hour">Hour</label>
                 <input
+                    value={values.hour}
+                    onChange={onChangeHandler}
                     type="text"
-                    name="image"
+                    name="hour"
                     className={styles["box"]}
-                    id="image"
-                    defaultValue=""
+                    id="hour"
+                    placeholder='Enter Hour...'
+                />
+                <label htmlFor="description">Description</label>
+                <input
+                    value={values.description}
+                    onChange={onChangeHandler}
+                    type="text"
+                    name="description"
+                    className={styles["box"]}
+                    id="description"
                     placeholder='Enter Description...'
                 />
-                 <label>Website</label>
+                <label htmlFor="website">Website</label>
                 <input
+                    value={values.website}
+                    onChange={onChangeHandler}
                     type="text"
-                    name="image"
+                    name="website"
                     className={styles["box"]}
-                    id="image"
-                    defaultValue=""
+                    id="website"
                     placeholder='Enter Artist Website...'
                 />
                 <label>Add</label>
-                <input 
-                type="submit" 
-                defaultValue="Add" 
-                className={styles["btn"]}
-                
-                 />
+                <input
+                    type="submit"
+                    defaultValue="Add"
+                    className={styles["btn"]}
+
+                />
             </form>
         </section>
     )
