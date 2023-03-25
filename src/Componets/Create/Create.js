@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './create.module.css'
 
 export default function Create({
-    onCreateGameSubmit,
+    onCreateEventSubmit,
 }) {
     const [values, setValues] = useState({
         name: '',
@@ -20,7 +20,7 @@ export default function Create({
 
     const onSubmit = (e) => {
         e.preventDefault();
-        onCreateGameSubmit(values);
+        onCreateEventSubmit(values);
     };
 
     return (

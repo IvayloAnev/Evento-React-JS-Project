@@ -17,7 +17,7 @@ import Events from './componets/Events/Events';
 
 
 function App() {
-
+  const navigate = useNavigate();
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -28,10 +28,13 @@ function App() {
       })
   }, []);
 
-  const onCreateGameSubmit = async (data) => {
-   console.log(data);
+  const onCreateEventSubmit = async (data) => {
+    const newEvent = await eventService.create(data);
+    //to do update state with the new event
+    setEvents(state => [...state, newEvent]);
+    // todo redirect to event
+    navigate('/events');
   };
-
 
   return (
     <>
@@ -48,7 +51,7 @@ function App() {
         <Route path='/sponsor' element={<Sponsor />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
-        <Route path='/create' element={<Create onCreateGameSubmit={onCreateGameSubmit} />} />
+        <Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
 
       </Routes>
       <Footer />

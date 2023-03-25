@@ -7,4 +7,12 @@ export const getAll = async () => {
     const events = Object.values(result);
     
     return events;
-}
+};
+
+export const create = async (eventData) => {
+    const result = await request.post(baseUrl, eventData);
+
+    console.log(result);
+
+    return result;
+};
