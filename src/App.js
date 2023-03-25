@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
-import { useEffect } from 'react';
+import { Routes, Route , useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
 
 import * as eventService from './services/eventService';
 
@@ -16,10 +16,14 @@ import Login from './componets/Login';
 import Create from './componets/Create/Create';
 
 function App() {
+
+  const [events, setEvents] = useState([]);
+
   useEffect(() => {
     eventService.getAll()
-      .then(events => {
-        console.log(events);
+      .then(result => {
+        console.log(result);
+        setEvents(result)
       })
       .catch(err => {
         console.log('Error' + err);
