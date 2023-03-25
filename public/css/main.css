@@ -397,7 +397,7 @@ h2 {
 #event {
   background-color: #33888F;
   background-image: url("../images/performar-bg.jpg");
-  background-position: 100% 0 ;
+  background-position: 100% 50% ;
   background-size: contain;
   position: relative;
   background-repeat: no-repeat;
@@ -407,14 +407,20 @@ h2 {
 
 
 .imgUrl{
-  height: 150px;
-  width: 250px;
+  height: 160px;
+  width: 320px;
 }
 
+.no-event{
+  position: center;
+  padding-left: 40%;
+}
 .guitar {
   position: absolute;
   right:0;
-  top: 0
+  top: 0;
+  height: 800px;
+  width: 300px;
 }
 
 
@@ -429,9 +435,10 @@ h2 {
 
 .single-event {
   margin-bottom: 90px;
+  
 }
 
-.single-event h4 {
+.single-event h3 {
   color: #FFFFFF;
   font-size: 24px;
   font-weight: 300;
@@ -441,7 +448,7 @@ h2 {
 }
 
 
-.single-event h5 {
+.single-event h4 {
   font-size: 18px;
   font-weight: 100;
   display: block;
@@ -449,7 +456,9 @@ h2 {
 
 #event-carousel {
   position: relative;
-  
+  height: 450px;
+  width: 500;
+ 
 }
 
 .even-control-left, 
@@ -458,6 +467,7 @@ h2 {
   font-size: 24px;
   color: #fff;
   top: 0;
+ 
 }
 
 .even-control-left {
@@ -465,7 +475,7 @@ h2 {
 } 
 
 .even-control-right {
-  right: 0;
+  right: 0%;
 }
 
 

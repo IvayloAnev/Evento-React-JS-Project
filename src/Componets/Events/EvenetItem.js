@@ -14,9 +14,9 @@ export default function EvenetItem({
                 alt="event-image"
                 
             />
-            <h4>{name}</h4>
-            <h5>{date}-{hour}</h5>
-            <h5>{location}</h5>
+            <h2>{name}</h2>
+            <h3>{date}-{hour}</h3>
+            <h4>{location}</h4>
         </div>
         </div>
     )

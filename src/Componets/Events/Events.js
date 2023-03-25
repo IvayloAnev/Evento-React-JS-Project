@@ -8,7 +8,7 @@ export default function Events({
 			<section id="event">
 				<div className="container">
 					<div className="row">
-						<div className="col-sm-12 col-md-9">
+						<div className="col-sm-11 col-md-16">
 							<div
 								id="event-carousel"
 								className="carousel slide"
@@ -36,6 +36,10 @@ export default function Events({
 
 											{events.map(x =>
 												<EvenetItem key={x._id} {...x} />
+											)}
+
+											{events.length === 0 && (
+												<h3 className="no-event">No Events yet</h3>
 											)}
 
 
