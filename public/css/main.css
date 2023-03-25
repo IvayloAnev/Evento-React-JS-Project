@@ -401,11 +401,15 @@ h2 {
   background-size: contain;
   position: relative;
   background-repeat: no-repeat;
-  padding:   150px 400px 107px ;
+  padding:   150px 400px 132px ;
   
 }
 
 
+.imgUrl{
+  height: 150px;
+  width: 250px;
+}
 
 .guitar {
   position: absolute;
@@ -424,7 +428,7 @@ h2 {
 }
 
 .single-event {
-  margin-bottom: 70px;
+  margin-bottom: 90px;
 }
 
 .single-event h4 {
@@ -445,6 +449,7 @@ h2 {
 
 #event-carousel {
   position: relative;
+  
 }
 
 .even-control-left, 

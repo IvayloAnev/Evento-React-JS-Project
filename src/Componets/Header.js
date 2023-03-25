@@ -52,7 +52,7 @@ export default function Header() {
                     <Link  to="/explore">Explore</Link>
                   </li>
                   <li className="scroll">
-                    <Link  to="/event">Event</Link>
+                    <Link  to="/events">Events</Link>
                   </li>
                   <li className="scroll">
                     <Link  to="/about">About</Link>
