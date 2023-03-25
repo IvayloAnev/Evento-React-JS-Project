@@ -773,18 +773,22 @@ h2 {
 **************************/
 
 .login {
-  background-color: #75B46E;  
+   
+  background-image: url("../images/performar-bg.jpg");
   position:absolute;  
   width: 100%;
   display: flex;
+  background-position: center;
   padding:   100px 25px 776px ;
 
 }
+
 
 .login-form-container {
   background: url(../image/banner-bg.jpg) no-repeat;
   background-size: cover;
   background-position: center;
+  
 }
 
 .login-form-container {
@@ -794,10 +798,13 @@ h2 {
   position: fixed;
   height: 100%;
   width: 100%;
+  
+
 }
 
 .login-form-container.active {
   right: 0;
+ 
 }
 
 .login-form-container form {
@@ -808,6 +815,7 @@ h2 {
   box-shadow: 0 0 10px #00000070;
   border-radius: 0.5rem;
   margin-bottom:10rem;
+  
 }
 
 .login-form-container form h3 {
@@ -815,12 +823,14 @@ h2 {
   text-transform: uppercase;
   color: #444;
   text-align: center;
+ 
 }
 
 .login-form-container form label {
   display: block;
   font-size: 1.5rem;
   padding-top: 1rem;
+  
 }
 
 .login-form-container form .box {

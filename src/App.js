@@ -13,6 +13,7 @@ import Sponsor from "./componets/Sponsor";
 import Contact from "./componets/Contact";
 import Footer from "./componets/Footer";
 import Login from './componets/Login';
+import Create from './componets/Create/Create';
 
 function App() {
   useEffect(() => {
@@ -40,6 +41,7 @@ function App() {
         <Route path='/sponsor' element={<Sponsor />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/create' element={<Create />} />
 
       </Routes>
       <Footer />

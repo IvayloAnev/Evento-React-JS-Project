@@ -63,6 +63,9 @@ export default function Header() {
                   <li className="no-scroll">
                     <Link to="/login">Login</Link>
                   </li>
+                  <li className="no-scroll">
+                    <Link to="/create">Add Event</Link>
+                  </li>
                   <li>
                     <Link className="no-scroll"  to="/" target="_blank">
                       PURCHASE TICKETS
