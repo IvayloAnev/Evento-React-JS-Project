@@ -27,7 +27,7 @@ export default function Create({
         <section className={styles["create-form-container"]}>
             <form action="/create" method="POST" id="create" onSubmit={onSubmit}>
                 <h3>Add Event</h3>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name" className={styles["label"]} >Name</label>
                 <input
                     value={values.name}
                     onChange={onChangeHandler}
@@ -37,7 +37,7 @@ export default function Create({
                     id="name"
                     placeholder='Enter Event Name...'
                 />
-                <label htmlFor="imgUrl">Image</label>
+                <label htmlFor="imgUrl">Image:</label>
                 <input
                     value={values.imgUrl}
                     onChange={onChangeHandler}
@@ -97,10 +97,10 @@ export default function Create({
                     id="website"
                     placeholder='Enter Artist Website...'
                 />
-                <label>Add</label>
+                <label></label>
                 <input
                     type="submit"
-                    defaultValue="Add"
+                    defaultValue="Add Event"
                     className={styles["btn"]}
 
                 />
