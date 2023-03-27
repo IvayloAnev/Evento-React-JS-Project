@@ -6,16 +6,16 @@ import * as eventService from '../../services/eventService'
 
 export default function Details() {
 
-    const{gameId} = useParams();
-    const[game,setGame] = useState({});
+    const{eventId} = useParams();
+    const[event,setEvenet] = useState({});
 
     useEffect(() => {
-        eventService.getOne(gameId)
+        eventService.getOne(eventId)
          .then(result => {
-            setGame(result);
+            setEvenet(result);
          })
-    }, [gameId]);
-    
+    }, [eventId]);
+
     return (
         <section className={styles["details-page"]}>
             <h1>Details</h1>
