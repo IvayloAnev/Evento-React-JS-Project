@@ -397,7 +397,7 @@ h2 {
 #event {
   background-color: #33888F;
   background-image: url("../images/performar-bg.jpg");
-  background-position: 100% 50% ;
+  background-position: 100% 80% ;
   background-size: contain;
   position: relative;
   background-repeat: no-repeat;
@@ -405,6 +405,16 @@ h2 {
   
 }
 
+.details-btn .details {
+  font-size: 18px;
+  background-color: darkgrey;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  position: absolute;
+  bottom: 10px;
+  left: 5%;
+}
 
 .imgUrl{
   height: 160px;
