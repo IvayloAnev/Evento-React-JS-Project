@@ -14,6 +14,7 @@ import Footer from "./componets/Footer";
 import Login from './componets/Login';
 import Create from './componets/Create/Create';
 import Events from './componets/Events/Events';
+import Details from './componets/Details/Details';
 
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
-
+        <Route path='/events/:gameId' element={<Details/>}/>
       </Routes>
       <Footer />
 

@@ -11,9 +11,9 @@ export default function Footer(){
               {" "}
               Evento{" "}
             </a>
-            Theme. All Rights Reserved. <br /> Designed by{" "}
+            Theme. All Rights Reserved. <br /> Designed by {"Ivaylo Anev @2023"}
             <a target="_blank" href="http://shapebootstrap.net/">
-              ShapeBootstrap
+               
             </a>
           </p>
         </div>
