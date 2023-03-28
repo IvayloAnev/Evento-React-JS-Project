@@ -9,11 +9,13 @@ export const getAll = async () => {
     return events;
 };
 
-export const getOne = async (gameId) => {
-    const result = await request.get(`${baseUrl}/${gameId}`);
+export const getOne = async (eventId) => {
+    const result = await request.get(`${baseUrl}/${eventId}`);
 
     return result;
 };
+
+
 
 export const create = async (eventData) => {
     const result = await request.post(baseUrl, eventData);

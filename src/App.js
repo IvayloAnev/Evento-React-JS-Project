@@ -53,7 +53,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
-        <Route path='/events/:gameId' element={<Details/>}/>
+        <Route path='/events/:eventId' element={<Details/>}/>
       </Routes>
       <Footer />
 

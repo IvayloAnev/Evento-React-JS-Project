@@ -1,10 +1,13 @@
 .details-page {
-  padding-top: 60px;
+  padding-top: 250px;
   padding-bottom: 50px;
+  background-image: url("./performar-bg.jpg");
 }
 
 .details-page > h1 {
-  font-size: 44px;
+  font-size: 33px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   color: black;
   margin-top: -1em;
@@ -14,12 +17,12 @@
 
 .details-card {
   display: flex;
-  width: 680px;
-  min-height: 400px;
+  width: 1180px;
+  min-height: 500px;
   height: auto;
-  background-color: #27ae60;
+  background-color: rgba(255, 255, 255, 0.045);
   margin-bottom: 1.5em;
-  border-radius: 30px;
+  border-radius: 0px;
   margin: 0 auto;
   box-shadow: 0 0 10px #00000070;
 }
@@ -29,11 +32,11 @@
 }
 
 .details-card-image > img {
-  width: 260px;
-  height: 360px;
+  width: 520px;
+  height: 260px;
   position: absolute;
   right: 0;
-  left: 0;
+  left: 180px;
   top: 0;
   bottom: 0;
   margin: auto auto;
@@ -43,6 +46,7 @@
   width: 400px;
   position: relative;
   height: auto;
+  left: 80px;
 }
 
 .detail-card-text-content {
@@ -56,7 +60,9 @@
 }
 
 .details-card-text > h2 {
-  font-size: 23px;
+  font-size: 28px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   line-height: 1.6em;
   word-wrap: break-word;
@@ -66,8 +72,10 @@
 }
 
 .details-card-text > h3 {
-  font-size: 14.5px;
-  line-height: 2em;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6em;
   word-wrap: break-word;
   padding-left: 10px;
   margin-top: 0.2em;
@@ -105,7 +113,7 @@
   border-color: gray;
   border-style: outset;
   border-width: 3px;
-  background-color: rgb(113, 81, 155);
+  background-color: #295461;
 }
 
 .btn-edit,
@@ -137,25 +145,25 @@
 }
 
 .btn-edit {
-  background-color: #428aa0;
+  background-color: #295461;
 }
 
 .btn-edit:hover {
-  background-color: #387183;
+  background-color: #070707;
 }
 
 .btn-delete {
-  background-color: #f15505;
+  background-color: #295461;
 }
 
 .btn-delete:hover {
-  background-color: #da4c06;
+  background-color: #070707;
 }
 
 .btn-wish {
-  background-color: #595c61;
+  background-color: #295461;
 }
 
 .btn-wish:hover {
-  background-color: #4b4d50;
+  background-color: #070707;
 }
