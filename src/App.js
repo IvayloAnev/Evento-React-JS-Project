@@ -11,7 +11,7 @@ import Twitter from "./componets/Twitter";
 import Sponsor from "./componets/Sponsor";
 import Contact from "./componets/Contact";
 import Footer from "./componets/Footer";
-import Login from './componets/Login';
+import Login from './componets/Login/Login';
 import Create from './componets/Create/Create';
 import Events from './componets/Events/Events';
 import Details from './componets/Details/Details';
@@ -20,6 +20,7 @@ import Details from './componets/Details/Details';
 function App() {
   const navigate = useNavigate();
   const [events, setEvents] = useState([]);
+  const [auth , setAuth] = useState({});
 
   useEffect(() => {
     eventService.getAll()
@@ -36,6 +37,16 @@ function App() {
     // todo redirect to event
     navigate('/events');
   };
+
+  const onLoginSubmit = async (data) => {
+    try{
+        const result = await authService.login(data);
+        setAuth(result);
+        navigate('/events')
+    }catch{
+        console.log('Tehre is a problem');
+    }
+  }
 
   return (
     <>

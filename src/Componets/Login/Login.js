@@ -13,7 +13,7 @@ export default function Login() {
                             name="email"
                             className="box"
                             id="email"
-                            defaultValue=""
+                            defaultValue="mnbv@abv.bg"
                         />
                         <label>Password</label>
                         <input type="password" name="password" className="box" id="password" />
