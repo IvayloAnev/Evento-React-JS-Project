@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 import { AuthContext } from "../../context/AuthContext";
+import {useForm} from "../../hooks/useForm";
 
 const LoginFormKeys = {
     Email: 'email',
@@ -48,5 +49,5 @@ export default function Login() {
 
             </div>
         </>
-    )
+    );
 }
