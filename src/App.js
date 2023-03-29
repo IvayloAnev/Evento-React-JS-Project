@@ -19,60 +19,75 @@ import Details from './componets/Details/Details';
 
 
 function App() {
-  const navigate = useNavigate();
-  const [events, setEvents] = useState([]);
-  const [auth , setAuth] = useState({});
+	const navigate = useNavigate();
+	const [events, setEvents] = useState([]);
+	const [auth, setAuth] = useState({});
 
-  useEffect(() => {
-    eventService.getAll()
-      .then(result => {
-        console.log(result);
-        setEvents(result)
-      })
-  }, []);
+	useEffect(() => {
+		eventService.getAll()
+			.then(result => {
+				console.log(result);
+				setEvents(result)
+			})
+	}, []);
 
-  const onCreateEventSubmit = async (data) => {
-    const newEvent = await eventService.create(data);
-    //to do update state with the new event
-    setEvents(state => [...state, newEvent]);
-    // todo redirect to event
-    navigate('/events');
-  };
+	const onCreateEventSubmit = async (data) => {
+		const newEvent = await eventService.create(data);
+		//to do update state with the new event
+		setEvents(state => [...state, newEvent]);
+		// todo redirect to event
+		navigate('/events');
+	};
 
-  const onLoginSubmit = async (data) => {
-    try{
-        const result = await authService.login(data);
-        setAuth(result);
-        navigate('/events')
-    }catch{
-        console.log('Tehre is a problem');
-    }
-  }
+	const onLoginSubmit = async (data) => {
+		try {
+			const result = await authService.login(data);
+			setAuth(result);
+			navigate('/events')
+		} catch {
+			console.log('Tehre is a problem');
+		}
+	}
 
-  return (
-    <>
+	const onRegisterSubmit = async () => { }
 
+	const onLogoutt = async () => { }
 
-      <Header />
-      <Routes>
+	const onGameEditSubmit = async () => { }
 
-        <Route path='/' element={<Home />} />
-        <Route path='/explore' element={<Explore />} />
-        <Route path='/events' element={<Events events={events} />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/twitter' element={<Twitter />} />
-        <Route path='/sponsor' element={<Sponsor />} />
-        <Route path='/contact' element={<Contact />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
-        <Route path='/events/:eventId' element={<Details/>}/>
-      </Routes>
-      <Footer />
+	const contextValues = {
+		onLoginSubmit,
+		onRegisterSubmit,
+		onLogoutt,
+		userId: auth._id,
+		token: auth.accesToken,
+		userEmail: auth.email,
+		isAuthenticated: !!auth.accesToken,
+	}
+
+	return (
 
 
-    </>
+		<AuthContext.Provider value={contextValues}>
+			<>
+				<Header />
+				<Routes>
 
-  );
+					<Route path='/' element={<Home />} />
+					<Route path='/explore' element={<Explore />} />
+					<Route path='/events' element={<Events events={events} />} />
+					<Route path='/about' element={<About />} />
+					<Route path='/twitter' element={<Twitter />} />
+					<Route path='/sponsor' element={<Sponsor />} />
+					<Route path='/contact' element={<Contact />} />
+					<Route path='/login' element={<Login />} />
+					<Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
+					<Route path='/events/:eventId' element={<Details />} />
+				</Routes>
+				<Footer />
+			</>
+		</AuthContext.Provider>
+	);
 }
 
 export default App;

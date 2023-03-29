@@ -1,29 +1,51 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
 
+import { AuthContext } from "../../context/AuthContext";
+
+const LoginFormKeys = {
+    Email: 'email',
+    Password: 'password'
+};
 
 export default function Login() {
+    const { onLoginSubmit } = useContext(AuthContext);
+    const { values, changeHandler, onSubmit } = useForm({
+        [LoginFormKeys.Email]: '',
+        [LoginFormKeys.Password]: '',
+    }, onLoginSubmit)
     return (
         <>
             <div className="login">
                 <section className="login-form-container">
-                    <form action="/auth/login" method="POST">
+                    <form id="login" method="POST" onSubmit={onSubmit}>
                         <h3>Login</h3>
                         <label>Email</label>
                         <input
                             type="email"
-                            name="email"
-                            className="box"
                             id="email"
-                            defaultValue="mnbv@abv.bg"
+                            placeholder="mnbv@abv.bg"
+                            name={LoginFormKeys.Email}
+                            value={values[LoginFormKeys.Email]}
+                            onChange={changeHandler}
+                            className="box"
                         />
                         <label>Password</label>
-                        <input type="password" name="password" className="box" id="password" />
-                        <input type="submit" defaultValue="Login" className="btn" />
+                        <input
+                            type="password"
+                            id="password"
+                            name={LoginFormKeys.Password}
+                            value={values[LoginFormKeys.Password]}
+                            onChange={changeHandler}
+                            className="box"
+                        />
+                        <input type="submit" defaultValue="Login" className="btn" value="Login" />
                         <p>
-                            Don't have an account ? <a href="/auth/register">Create one</a>
+                            Don't have an account ? <Link to="/register">Create one</Link>
                         </p>
                     </form>
                 </section>
-              
+
             </div>
         </>
     )
