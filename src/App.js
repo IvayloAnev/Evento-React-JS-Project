@@ -2,6 +2,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 
 import * as eventService from './services/eventService';
+import { AuthContext } from './context/AuthContext';
 
 import Header from "./componets/Header";
 import Home from "./componets/Home";
