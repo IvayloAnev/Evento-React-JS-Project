@@ -1,26 +1,43 @@
-import * as request from './requester';
+import { requestFactory } from './requester';
 
-const baseUrl = 'http://localhost:3030/jsonstore/events'
+const baseUrl = 'http://localhost:3030/jsonstore/events';
 
-export const getAll = async () => {
-    const result = await request.get(baseUrl);
-    const events = Object.values(result);
+export const eventServiceFactory = (token) => {
+    const request = requestFactory(token);
+
+    const getAll = async () => {
+        const result = await request.get(baseUrl);
+        const events = Object.values(result);
     
-    return events;
-};
+        return events;
+    };
+    
+    const getOne = async (eventId) => {
+        const result = await request.get(`${baseUrl}/${eventId}`);
+    
+        return result;
+    };
+    
+    const create = async (eventData) => {
+        const result = await request.post(baseUrl, eventData);
+    
+        //console.log(result);
+    
+        return result;
+    };
+    
+   
 
-export const getOne = async (eventId) => {
-    const result = await request.get(`${baseUrl}/${eventId}`);
+    const edit = (eventId, data) => request.put(`${baseUrl}/${eventId}`, data);
 
-    return result;
-};
+    const deleteEvent = (eventId) => request.delete(`${baseUrl}/${eventId}`);
 
 
-
-export const create = async (eventData) => {
-    const result = await request.post(baseUrl, eventData);
-
-    console.log(result);
-
-    return result;
-};
+    return {
+        getAll,
+        getOne,
+        create,
+        edit,
+        delete: deleteEvent,
+    };
+}

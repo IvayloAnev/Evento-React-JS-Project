@@ -1,16 +1,20 @@
 
 import styles from './details.module.css';
+import { useEffect, useState, useContext } from 'react';
 
-import { useParams} from 'react-router-dom';
-import { useEffect , useState } from 'react';
-
-import * as eventService from '../../services/eventService'
+import { useParams,useNavigate, Link} from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
+import { useService } from '../../hooks/useService';
+import {eventServiceFactory} from '../../services/eventService'
 
 
 export default function Details() {
-
+    const { userId } = useContext(AuthContext);
+    const [username, setUsername] = useState('');
     const{eventId} = useParams();
     const[event,setEvenet] = useState({});
+    const eventService = useService(eventServiceFactory);
+    const navigate = useNavigate();
 
     useEffect(() => {
         eventService.getOne(eventId)

@@ -797,26 +797,16 @@ h2 {
 ******Login CSS****
 **************************/
 
-.login {
-   
-  background-image: url("../images/performar-bg.jpg");
-  position:absolute;  
-  width: 100%;
-  display: flex;
-  background-position: center;
-  padding:   100px 25px 776px ;
-
-}
-
-
 .login-form-container {
-  background: url(../image/banner-bg.jpg) no-repeat;
+  background-color:azure;
+  background-image: url("../images/twitter-bg.jpg");
   background-size: cover;
   background-position: center;
-  
+  padding: 150px 0 10px;
 }
 
 .login-form-container {
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -833,13 +823,16 @@ h2 {
 }
 
 .login-form-container form {
-  background: #fff;
+  background:#e4f8ec;
+  
   border: 0.1rem solid rgba(0, 0, 0, 0.1);
-  width: 40rem;
+  width: 50rem;
   padding: 2rem;
   box-shadow: 0 0 10px #00000070;
   border-radius: 0.5rem;
   margin-bottom:10rem;
+  margin-top: 2rem;
+  margin-bottom: 10rem;
   
 }
 
@@ -855,6 +848,7 @@ h2 {
   display: block;
   font-size: 1.5rem;
   padding-top: 1rem;
+  color:black
   
 }
 
@@ -885,7 +879,9 @@ h2 {
 .login-form-container form .btn {
   text-align: center;
   width: 100%;
-  margin: 1.5rem 0;
+  margin: 3rem 0;
+  color: #5e0f0f ;
+  border-radius: 1rem;
 }
 
 .login-form-container form p {

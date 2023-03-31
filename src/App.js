@@ -1,8 +1,10 @@
-import { Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react';
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
-import * as eventService from './services/eventService';
-import { AuthContext } from './context/AuthContext';
+import { eventServiceFactory } from './services/eventService';
+import { authServiceFactory } from './services/authService';
+import { AuthContext } from './contexts/AuthContext';
+
 
 import Header from "./componets/Header";
 import Home from "./componets/Home";
@@ -16,12 +18,16 @@ import Login from './componets/Login/Login';
 import Create from './componets/Create/Create';
 import Events from './componets/Events/Events';
 import Details from './componets/Details/Details';
+import Register from './componets/Register/Register'
+import {Logout}  from './componets/Logout/Logout';
 
 
 function App() {
 	const navigate = useNavigate();
 	const [events, setEvents] = useState([]);
 	const [auth, setAuth] = useState({});
+	const eventService = eventServiceFactory(auth.accessToken);
+	const authService = authServiceFactory(auth.accessToken);
 
 	useEffect(() => {
 		eventService.getAll()
@@ -42,23 +48,45 @@ function App() {
 	const onLoginSubmit = async (data) => {
 		try {
 			const result = await authService.login(data);
+			console.log(result);
 			setAuth(result);
 			navigate('/events')
 		} catch {
 			console.log('Tehre is a problem');
 		}
+		console.log(data);
 	}
 
-	const onRegisterSubmit = async () => { }
 
-	const onLogoutt = async () => { }
+	const onRegisterSubmit = async (values) => {
+        const { confirmPassword, ...registerData } = values;
+        if (confirmPassword !== registerData.password) {
+            return;
+        }
 
-	const onGameEditSubmit = async () => { }
+        try {
+            const result = await authService.register(registerData);
+
+            setAuth(result);
+
+            navigate('/events');
+        } catch (error) {
+            console.log('There is a problem');
+        }
+    };
+
+	const onLogout = async () => {
+        await authService.logout();
+
+        setAuth({});
+    };
+
+	const onEventEditSubmit = async () => { }
 
 	const contextValues = {
 		onLoginSubmit,
 		onRegisterSubmit,
-		onLogoutt,
+		onLogout,
 		userId: auth._id,
 		token: auth.accesToken,
 		userEmail: auth.email,
@@ -72,7 +100,6 @@ function App() {
 			<>
 				<Header />
 				<Routes>
-
 					<Route path='/' element={<Home />} />
 					<Route path='/explore' element={<Explore />} />
 					<Route path='/events' element={<Events events={events} />} />
@@ -81,6 +108,8 @@ function App() {
 					<Route path='/sponsor' element={<Sponsor />} />
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/login' element={<Login />} />
+					<Route path='/logout' element={<Logout />} />
+					<Route path='/register' element={<Register />} />
 					<Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
 					<Route path='/events/:eventId' element={<Details />} />
 				</Routes>

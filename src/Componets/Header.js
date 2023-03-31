@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom"
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../contexts/AuthContext';
 
 export default function Header() {
+  const { isAuthenticated, userEmail } = useContext(AuthContext);
+
   return (
     <>
       <header id="header" role="banner">
@@ -14,10 +18,10 @@ export default function Header() {
                 <Link to="#">
                   <i className="fa fa-facebook" />
                 </Link>
-                <Link  to="#">
+                <Link to="#">
                   <i className="fa fa-google-plus" />
                 </Link>
-                <Link  to="#">
+                <Link to="#">
                   <i className="fa fa-youtube" />
                 </Link>
               </div>
@@ -46,34 +50,54 @@ export default function Header() {
               <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav navbar-right">
                   <li className="scroll active">
-                    <Link  to="/">Home</Link>
+                    <Link to="/">Home</Link>
                   </li>
                   <li className="scroll">
-                    <Link  to="/explore">Explore</Link>
+                    <Link to="/explore">Explore</Link>
                   </li>
                   <li className="scroll">
-                    <Link  to="/events">Events</Link>
+                    <Link to="/events">Events</Link>
                   </li>
                   <li className="scroll">
-                    <Link  to="/about">About</Link>
+                    <Link to="/about">About</Link>
                   </li>
                   <li className="no-scroll">
                     <Link to="/twitter">Twitter</Link>
                   </li>
-                  <li className="no-scroll">
-                    <Link to="/login">Login</Link>
-                  </li>
-                  <li className="no-scroll">
-                    <Link to="/create">Add Event</Link>
-                  </li>
-                  <li>
-                    <Link className="no-scroll"  to="/" target="_blank">
-                      PURCHASE TICKETS
-                    </Link>
-                  </li>
                   <li className="scroll">
-                    <Link  to="/contact">Contact</Link>
+                    <Link to="/contact">Contact</Link>
                   </li>
+
+
+                  {!isAuthenticated && (
+                    <li className="no-scroll">
+                      <Link to="/create">Add Event</Link>
+                    </li>
+                    
+                  )}
+
+                  {!isAuthenticated && (                    
+                    <span styles={'no-scroll'}>{userEmail}</span>
+                  )}
+
+                  {!isAuthenticated && (
+                    <li className="no-scroll">
+                      <Link to="/logout">Logout</Link>
+                    </li>
+                  )}
+
+                  {!isAuthenticated && (
+                    <li className="no-scroll">
+                      <Link to="/register">Register</Link>
+                    </li>
+                  )}
+                  {!isAuthenticated && (
+                    <li className="no-scroll">
+                      <Link to="/login">Login</Link>
+                    </li>
+                  )}
+
+
                 </ul>
               </div>
             </div>

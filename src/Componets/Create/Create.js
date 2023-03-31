@@ -1,10 +1,11 @@
-import { useState } from 'react';
+
+import { useForm } from '../../hooks/useForm';
 import styles from './create.module.css'
 
 export default function Create({
     onCreateEventSubmit,
 }) {
-    const [values, setValues] = useState({
+    const { values, changeHandler, onSubmit } = useForm({
         name: '',
         imgUrl: '',
         location: '',
@@ -12,16 +13,7 @@ export default function Create({
         hour: '',
         description: '',
         website: '',
-    });
-
-    const onChangeHandler = (e) => {
-        setValues(state => ({...state, [e.target.name]: e.target.value}))
-    };
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        onCreateEventSubmit(values);
-    };
+    },onCreateEventSubmit);
 
     return (
         <section className={styles["create-form-container"]}>
@@ -30,7 +22,7 @@ export default function Create({
                 <label htmlFor="name" className={styles["label"]} >Name</label>
                 <input
                     value={values.name}
-                    onChange={onChangeHandler}
+                    onChange={changeHandler}
                     type="text"
                     name="name"
                     className={styles["box"]}
@@ -40,7 +32,7 @@ export default function Create({
                 <label htmlFor="imgUrl">Image:</label>
                 <input
                     value={values.imgUrl}
-                    onChange={onChangeHandler}
+                    onChange={changeHandler}
                     type="text"
                     name="imgUrl"
                     className={styles["box"]}
@@ -50,7 +42,7 @@ export default function Create({
                 <label htmlFor="location">Location</label>
                 <input
                     value={values.location}
-                    onChange={onChangeHandler}
+                    onChange={changeHandler}
                     type="text"
                     name="location"
                     className={styles["box"]}
@@ -60,7 +52,7 @@ export default function Create({
                 <label htmlFor="date">Date</label>
                 <input
                     value={values.date}
-                    onChange={onChangeHandler}
+                    onChange={changeHandler}
                     type="text"
                     name="date"
                     className={styles["box"]}
@@ -70,7 +62,7 @@ export default function Create({
                 <label htmlFor="hour">Hour</label>
                 <input
                     value={values.hour}
-                    onChange={onChangeHandler}
+                    onChange={changeHandler}
                     type="text"
                     name="hour"
                     className={styles["box"]}
@@ -80,7 +72,7 @@ export default function Create({
                 <label htmlFor="description">Description</label>
                 <input
                     value={values.description}
-                    onChange={onChangeHandler}
+                    onChange={changeHandler}
                     type="text"
                     name="description"
                     className={styles["box"]}
@@ -90,7 +82,7 @@ export default function Create({
                 <label htmlFor="website">Website</label>
                 <input
                     value={values.website}
-                    onChange={onChangeHandler}
+                    onChange={changeHandler}
                     type="text"
                     name="website"
                     className={styles["box"]}
