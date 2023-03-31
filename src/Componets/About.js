@@ -1,3 +1,5 @@
+import { Navigate ,Link } from "react-router-dom"
+
 export default function About(){
     return(
         <>
@@ -15,9 +17,9 @@ export default function About(){
           typesetting industry. Lorem Ipsum has been the industry's standard dummy
           text ever since the 1500s
         </p>
-        <a href="#" className="btn btn-primary">
+        <Link to ="/events" className="btn btn-primary">
           View Date &amp; Place <i className="fa fa-angle-right" />
-        </a>
+        </Link>
       </div>
     </section>
     {/*/#about*/}
