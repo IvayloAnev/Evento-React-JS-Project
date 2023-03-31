@@ -49,6 +49,7 @@ export default function Header() {
               </div>
               <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav navbar-right">
+
                   <li className="scroll active">
                     <Link to="/">Home</Link>
                   </li>
@@ -69,43 +70,39 @@ export default function Header() {
                   </li>
 
 
-                  {!isAuthenticated && (
-                    <li className="no-scroll">
-                      <Link to="/create">Add Event</Link>
-                    </li>
-                    
-                  )}
 
-                  {!isAuthenticated && (  
-                                   
-                    <span>{userEmail}</span>
+
+                  <li className="no-scroll">
+                    <Link to="/create">Add Event</Link>
+                  </li>
+
+                  <span>{userEmail}</span>
+
+                  <li className="no-scroll">
+                    <Link to="/logout">Logout</Link>
+                  </li>
                   
-                  )}
-
-                  {!isAuthenticated && (
-                    <li className="no-scroll">
-                      <Link to="/logout">Logout</Link>
-                    </li>
-                  )}
-
-                  {!isAuthenticated && (
                     <li className="no-scroll">
                       <Link to="/register">Register</Link>
                     </li>
-                  )}
-                  {!isAuthenticated && (
-                    <li className="no-scroll">
-                      <Link to="/login">Login</Link>
-                    </li>
-                  )}
+                 
+        
+                  <li className="no-scroll">
+                    <Link to="/login">Login</Link>
+                  </li>
 
 
                 </ul>
               </div>
+
+
+
+
+
             </div>
           </div>
         </div>
-      </header>
+      </header >
       {/*/#header*/}
     </>
   )

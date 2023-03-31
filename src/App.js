@@ -20,6 +20,7 @@ import Events from './componets/Events/Events';
 import Details from './componets/Details/Details';
 import Register from './componets/Register/Register'
 import {Logout}  from './componets/Logout/Logout';
+import Edit from './componets/Edit/Edit'
 
 
 function App() {
@@ -98,7 +99,7 @@ function App() {
 		userEmail: auth.email,
 		isAuthenticated: !!auth.accesToken,
 	};
-
+    
 	return (
 
 
@@ -118,6 +119,7 @@ function App() {
 					<Route path='/register' element={<Register />} />
 					<Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
 					<Route path='/events/:eventId' element={<Details />} />
+					<Route path='/events/:eventId/edit' element={<Edit onEventEditSubmit={onEventEditSubmit} />} />
 				</Routes>
 				<Footer />
 			</>
