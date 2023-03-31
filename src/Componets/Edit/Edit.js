@@ -1,39 +1,93 @@
-export default function Edit() {
+import styles from './edit.module.css'
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+import { useForm } from "../../hooks/useForm";
+import { useService } from "../../hooks/useService";
+import { eventServiceFactory } from "../../services/eventService";
+
+export default function Edit({
+    onEventEditSubmit,
+}) {
+    const { eventId } = useParams();
+    const eventService = useService(eventServiceFactory);
+    const { values, changeHandler, onSubmit, changeValues } = useForm({
+        _id: '',
+        name: '',
+        imageUrl: '',
+        location: '',
+        date: '',
+        hour: '',
+        description: '',
+        website: ''
+    }, onEventEditSubmit);
+
+    useEffect(() => {
+        eventService.getOne(eventId)
+            .then(result => {
+                changeValues(result);
+            });
+    }, [eventId]);
+
     return (
-        <section className="edit-form-container">
-            <form action="">
+        <section className={styles["edit-form-container"]}>
+            <form id="edit" method="post" onSubmit={onSubmit}>
                 <h3>Edit Book Review</h3>
-                <label>Title</label>
+                <label>Name</label>
                 <input
                     type="text"
-                    name=""
-                    className="box"
-                    defaultValue="Harry Potter and the Philosopher's Stone"
-                    id=""
+                    id="name"
+                    name="name"
+                    className={styles["box"]}
+                    value={values.title}
+                    onChange={changeHandler}
                 />
-                <label>Author</label>
+                <label>ImgUrl</label>
                 <input
                     type="text"
-                    name=""
-                    className="box"
-                    defaultValue="JK Rowling"
-                    id=""
+                    id="imageUrl"
+                    name="imageUrl"
+                    className={styles["box"]}
+                    value={values.imageUrl}
+                    onChange={changeHandler}
+
+
                 />
-                <label>Genre</label>
-                <input type="text" name="" className="box" defaultValue="Fantasy" id="" />
-                <label>Stars</label>
-                <input type="number" name="" className="box" defaultValue={5} id="" />
-                <label>Image</label>
-                <input type="text" name="" className="box" defaultValue="http:..." id="" />
-                <label>Review</label>
+                <label>Location</label>
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    className={styles["box"]}
+                    value={values.location}
+                    onChange={changeHandler}
+                />
+                <label>Date</label>
+                <input
+                    type="text"
+                    id="date"
+                    name="date"
+                    className={styles["box"]}
+                    value={values.date}
+                    onChange={changeHandler}
+                />
+                <label>Hour</label>
+                <input
+                    type="text"
+                    id="hour"
+                    name="hour"
+                    className={styles["box"]}
+                    value={values.hour}
+                    onChange={changeHandler}
+                />
+                <label>Description</label>
                 <textarea
-                    className="box"
-                    name=""
-                    defaultValue={
-                        "Harry Potter and the Philosopher's Stone is one of my favourite books in the Harry Potter series. Reading this book has made me crazy about Harry Potter and I wish to be one among the magical community. I can't imagine how thrilled I would be if I get a letter from Dumbledore saying that I am admitted to Hogwarts!!!!!!!"
-                    }
+                    className={styles["box"]}
+                    name="descrition"
+                    value={values.descrition}
+                    onChange={changeHandler}
                 />
-                <input type="submit" defaultValue="Edit" className="btn" />
+                <input type="submit" defaultValue="Edit Event" className={styles["btn"]} />
             </form>
         </section>
     )

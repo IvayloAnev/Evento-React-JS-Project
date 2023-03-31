@@ -1,7 +1,9 @@
 .edit-form-container {
-    background: url(../image/banner-bg.jpg);
+  background-color:azure;
+    background: url(./performar-bg.jpg);
     background-size: cover;
     background-position: center;
+    padding: 250px 0 10px;
   }
   
   .edit-form-container {
@@ -17,14 +19,14 @@
   }
   
   .edit-form-container form {
-    background: #fff;
+    background:#e4f8ec;
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
-    width: 40rem;
+    width: 60rem;
     padding: 2rem;
     box-shadow: 0 0 10px #00000070;
     border-radius: 0.5rem;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 10rem;
   }
   
   .edit-form-container form h3 {
@@ -36,14 +38,15 @@
   
   .edit-form-container form label {
     display: block;
-    font-size: 1.5rem;
-    padding-top: 1rem;
+    font-size: 2rem;
+    padding-top: 1.2rem;
+    color:black
   }
   
   .edit-form-container form .box {
     width: 100%;
     margin: 0.7rem 0;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
     padding: 1rem 1.2rem;
@@ -54,7 +57,10 @@
   .edit-form-container form .btn {
     text-align: center;
     width: 100%;
-    margin: 1.5rem 0;
+    margin: 3rem 0;
+    color: #5e0f0f ;
+    border-radius: 1rem;
+  
   }
   
   .edit-form-container form p {

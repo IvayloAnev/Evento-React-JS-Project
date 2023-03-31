@@ -55,12 +55,12 @@ export default function Details() {
                     {isOwner && (
                         <div className={styles["buttons"]}>
 
-                            <a href="#" className={styles["btn-edit"]}>
+                            <Link to={`/events/${event._id}/edit`} className={styles["btn-edit"]}>
                                 Edit
-                            </a>
-                            <a href="#" className={styles["btn-delete"]}>
+                            </Link>
+                            <button  className={styles["btn-delete"]} onClick={onDeleteClick}>
                                 Delete
-                            </a>
+                            </button>
                         </div>
                     )}
                     {!isOwner &&(
