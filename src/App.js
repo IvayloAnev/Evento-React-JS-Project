@@ -81,10 +81,10 @@ function App() {
         setAuth({});
     };
 
-	const onGameEditSubmit = async (values) => {
-        const result = await gameService.edit(values._id, values);
+	const onEventEditSubmit = async (values) => {
+        const result = await eventService.edit(values._id, values);
 
-        setGames(state => state.map(x => x._id === values._id ? result : x))
+        setEvents(state => state.map(x => x._id === values._id ? result : x))
 
         navigate(`/catalog/${values._id}`);
     }

@@ -1,6 +1,6 @@
 import { requestFactory } from './requester';
 
-const baseUrl = 'http://localhost:3030/jsonstore/events';
+const baseUrl = 'http://localhost:3030/data/events';
 
 export const eventServiceFactory = (token) => {
     const request = requestFactory(token);
@@ -26,7 +26,12 @@ export const eventServiceFactory = (token) => {
         return result;
     };
     
-   
+    const addComment = async (gameId, data) => {
+        const result = await request.post(`${baseUrl}/${gameId}/comments`, data);
+    
+        return result;
+    };
+
 
     const edit = (eventId, data) => request.put(`${baseUrl}/${eventId}`, data);
 
@@ -38,6 +43,7 @@ export const eventServiceFactory = (token) => {
         getOne,
         create,
         edit,
+        addComment,
         delete: deleteEvent,
     };
 }
