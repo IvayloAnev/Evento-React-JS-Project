@@ -32,14 +32,14 @@ export default function Edit({
     return (
         <section className={styles["edit-form-container"]}>
             <form id="edit" method="post" onSubmit={onSubmit}>
-                <h3>Edit Book Review</h3>
+                <h3>Edit Event</h3>
                 <label>Name</label>
                 <input
                     type="text"
                     id="name"
                     name="name"
                     className={styles["box"]}
-                    value={values.title}
+                    value={values.name}
                     onChange={changeHandler}
                 />
                 <label>ImgUrl</label>
@@ -48,7 +48,7 @@ export default function Edit({
                     id="imageUrl"
                     name="imageUrl"
                     className={styles["box"]}
-                    value={values.imageUrl}
+                    value={values.imgUrl}
                     onChange={changeHandler}
 
 
@@ -84,7 +84,7 @@ export default function Edit({
                 <textarea
                     className={styles["box"]}
                     name="descrition"
-                    value={values.descrition}
+                    value={values.description}
                     onChange={changeHandler}
                 />
                 <input type="submit" defaultValue="Edit Event" className={styles["btn"]} />

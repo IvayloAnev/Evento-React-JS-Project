@@ -87,7 +87,7 @@ function App() {
 
         setEvents(state => state.map(x => x._id === values._id ? result : x))
 
-        navigate(`/catalog/${values._id}`);
+        navigate(`/events/${values._id}`);
     }
 
 	const contextValues = {

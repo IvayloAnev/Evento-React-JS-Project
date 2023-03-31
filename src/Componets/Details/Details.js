@@ -31,7 +31,7 @@ export default function Details() {
 
         // TODO: delete from state
 
-        navigate('/catalog');
+        navigate('/events');
     };
 
     return (
