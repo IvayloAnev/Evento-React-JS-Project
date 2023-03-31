@@ -48,13 +48,13 @@ function App() {
 	const onLoginSubmit = async (data) => {
 		try {
 			const result = await authService.login(data);
-			console.log(result);
+			//console.log(result);
 			setAuth(result);
 			navigate('/events')
 		} catch {
 			console.log('Tehre is a problem');
 		}
-		console.log(data);
+		//console.log(data);
 	}
 
 
@@ -81,7 +81,13 @@ function App() {
         setAuth({});
     };
 
-	const onEventEditSubmit = async () => { }
+	const onGameEditSubmit = async (values) => {
+        const result = await gameService.edit(values._id, values);
+
+        setGames(state => state.map(x => x._id === values._id ? result : x))
+
+        navigate(`/catalog/${values._id}`);
+    }
 
 	const contextValues = {
 		onLoginSubmit,
@@ -91,7 +97,7 @@ function App() {
 		token: auth.accesToken,
 		userEmail: auth.email,
 		isAuthenticated: !!auth.accesToken,
-	}
+	};
 
 	return (
 

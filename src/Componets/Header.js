@@ -76,8 +76,10 @@ export default function Header() {
                     
                   )}
 
-                  {!isAuthenticated && (                    
-                    <span styles={'no-scroll'}>{userEmail}</span>
+                  {!isAuthenticated && (  
+                                   
+                    <span>{userEmail}</span>
+                  
                   )}
 
                   {!isAuthenticated && (
