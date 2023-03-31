@@ -10,8 +10,6 @@ import Header from "./componets/Header";
 import Home from "./componets/Home";
 import Explore from "./componets/Explore";
 import About from "./componets/About";
-import Twitter from "./componets/Twitter";
-import Sponsor from "./componets/Sponsor";
 import Contact from "./componets/Contact";
 import Footer from "./componets/Footer";
 import Login from './componets/Login/Login';
@@ -111,8 +109,6 @@ function App() {
 					<Route path='/explore' element={<Explore />} />
 					<Route path='/events' element={<Events events={events} />} />
 					<Route path='/about' element={<About />} />
-					<Route path='/twitter' element={<Twitter />} />
-					<Route path='/sponsor' element={<Sponsor />} />
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/login' element={<Login />} />
 					<Route path='/logout' element={<Logout />} />

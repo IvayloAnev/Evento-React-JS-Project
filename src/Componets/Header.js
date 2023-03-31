@@ -51,6 +51,7 @@ export default function Header() {
                 <ul className="nav navbar-nav navbar-right">
 
                   <li className="scroll active">
+
                     <Link to="/">Home</Link>
                   </li>
                   <li className="scroll">
@@ -62,35 +63,43 @@ export default function Header() {
                   <li className="scroll">
                     <Link to="/about">About</Link>
                   </li>
-                  <li className="no-scroll">
-                    <Link to="/twitter">Twitter</Link>
-                  </li>
                   <li className="scroll">
                     <Link to="/contact">Contact</Link>
                   </li>
 
+                  {userEmail && (
+                    <li className="no-scroll">
+                      <Link to="/create">Add Event</Link>
+                    </li>
+                  )}
+
+
+                  {userEmail && (
+                    <li className="no-scroll">
+                      <Link to="/logout">Logout</Link>
+                    </li>
+                  )}
 
 
 
-                  <li className="no-scroll">
-                    <Link to="/create">Add Event</Link>
-                  </li>
-
-                  <span>{userEmail}</span>
-
-                  <li className="no-scroll">
-                    <Link to="/logout">Logout</Link>
-                  </li>
-                  
+                  {!userEmail && (
                     <li className="no-scroll">
                       <Link to="/register">Register</Link>
                     </li>
-                 
-        
-                  <li className="no-scroll">
-                    <Link to="/login">Login</Link>
-                  </li>
+                  )}
 
+
+                  {!userEmail && (
+                    <li className="no-scroll">
+                      <Link to="/login">Login</Link>
+                    </li>
+                  )}
+
+                  {userEmail && (
+                    <li className="no-scroll">
+                      <a>{userEmail}</a>
+                    </li>
+                  )}
 
                 </ul>
               </div>
