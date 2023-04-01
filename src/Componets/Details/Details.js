@@ -15,6 +15,7 @@ export default function Details() {
     const [event, setEvenet] = useState({});
     const eventService = useService(eventServiceFactory);
     const navigate = useNavigate();
+    const {  userEmail } = useContext(AuthContext);
 
     useEffect(() => {
         eventService.getOne(eventId)
@@ -63,7 +64,7 @@ export default function Details() {
                             </button>
                         </div>
                     )}
-                    {!isOwner &&(
+                    {!isOwner && userEmail && (
                          <div className={styles["buttons"]}>
                          {/* logged in user who has not yet wished book*/}
                          <a href="#" className={styles["btn-wish"]}>
