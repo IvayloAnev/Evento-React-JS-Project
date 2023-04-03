@@ -23,8 +23,8 @@ import Edit from './componets/Edit/Edit'
 function App() {
 	const navigate = useNavigate();
 	const [events, setEvents] = useState([]);
-	const [auth, setAuth] = useState({});
-	const eventService = eventServiceFactory(auth.accessToken);
+	//const [auth, setAuth] = useState({});
+	const eventService = eventServiceFactory();//auth.accessToken
 
 
 	useEffect(() => {

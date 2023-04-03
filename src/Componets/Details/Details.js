@@ -1,29 +1,48 @@
 
 import styles from './details.module.css';
-import { useEffect, useState, useContext } from 'react';
 
+import { useEffect, useState, useReducer } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { AuthContext } from '../../contexts/AuthContext';
-import { useService } from '../../hooks/useService';
-import { eventServiceFactory } from '../../services/eventService'
 
+import { eventServiceFactory } from '../../services/eventService'
+import * as commentService from '../../services/commentService';
+import { useService } from '../../hooks/useService';
+import { useAuthContext } from '../../contexts/AuthContext';
+
+import { AddComment } from './AddComment/AddCommnet';
+import { eventReducer } from '../../reducers/eventReducer';
 
 export default function Details() {
-    const { userId } = useContext(AuthContext);
-    const [username, setUsername] = useState('');
     const { eventId } = useParams();
-    const [event, setEvenet] = useState({});
+    const { userId, isAuthenticated, userEmail } = useAuthContext();
+    const [event, dispatch] = useReducer(eventReducer, {});
     const eventService = useService(eventServiceFactory);
     const navigate = useNavigate();
-    const {  userEmail } = useContext(AuthContext);
+
 
     useEffect(() => {
-        eventService.getOne(eventId)
-            .then(result => {
-                setEvenet(result);
-            })
+        Promise.all([
+            eventService.getOne(eventId),
+            commentService.getAll(eventId),
+        ]).then(([eventData, comments]) => {
+            const eventState = {
+                ...eventData,
+                comments,
+            };
+
+            dispatch({ type: 'EVENT_FETCH', payload: eventState })
+        });
     }, [eventId]);
 
+    const onCommentSubmit = async (values) => {
+        const response = await commentService.create(eventId, values.comment);
+
+        dispatch({
+            type: 'COMMENT_ADD',
+            payload: response,
+            userEmail,
+        });
+    };
 
     const isOwner = event._ownerId === userId;
 
@@ -59,27 +78,43 @@ export default function Details() {
                             <Link to={`/events/${event._id}/edit`} className={styles["btn-edit"]}>
                                 Edit
                             </Link>
-                            <button  className={styles["btn-delete"]} onClick={onDeleteClick}>
+                            <button className={styles["btn-delete"]} onClick={onDeleteClick}>
                                 Delete
                             </button>
                         </div>
                     )}
                     {!isOwner && userEmail && (
-                         <div className={styles["buttons"]}>
-                         {/* logged in user who has not yet wished book*/}
-                         <a href="#" className={styles["btn-wish"]}>
-                             Book a ticket
-                         </a>
-                         {/* logged in user who has already wished book*/}
-                         <p className={styles["wish-pub"]}>You already have booked your ticket</p>
-                     </div>
+                        <div className={styles["buttons"]}>
+                            {/* logged in user who has not yet wished book*/}
+                            <a href="#" className={styles["btn-wish"]}>
+                                Book a ticket
+                            </a>
+                            {/* logged in user who has already wished book*/}
+                            <p className={styles["wish-pub"]}>You already have booked your ticket</p>
+                        </div>
                     )}
-                   
+
+                    <div className="details-comments">
+                        <h2>Comments:</h2>
+                        <ul>
+                            {event.comments && event.comments.map(x => (
+                                <li key={x._id} className="comment">
+                                    <p>{x.author.email}: {x.comment}</p>
+                                </li>
+                            ))}
+                        </ul>
+
+                        {!event.comments?.length && (
+                            <p className="no-comment">No comments.</p>
+                        )}
+                    </div>
+
                 </article>
                 <article className={styles["details-card-image"]}>
                     <img src={event.imgUrl} />
                 </article>
             </article>
+            { userEmail && <AddComment onCommentSubmit={onCommentSubmit} />}
         </section >
     )
 }

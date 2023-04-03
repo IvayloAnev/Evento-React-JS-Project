@@ -26,11 +26,6 @@ export const eventServiceFactory = (token) => {
         return result;
     };
     
-    const addComment = async (gameId, data) => {
-        const result = await request.post(`${baseUrl}/${gameId}/comments`, data);
-    
-        return result;
-    };
 
 
     const edit = (eventId, data) => request.put(`${baseUrl}/${eventId}`, data);
@@ -43,7 +38,6 @@ export const eventServiceFactory = (token) => {
         getOne,
         create,
         edit,
-        addComment,
         delete: deleteEvent,
     };
 }
