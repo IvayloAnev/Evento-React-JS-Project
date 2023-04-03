@@ -920,6 +920,20 @@ h2 {
 
 .details-comments {
   display: table-cell;
+  color :rgb(6, 5, 5);
+  font-weight: 800;
+}
+
+.details-comments > h2 {
+  font-size: 28px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  line-height: 1.6em;
+  word-wrap: break-word;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  color: black;
 }
 
 .create-comment {
@@ -929,14 +943,14 @@ h2 {
   text-align: center;
   width: 700px;
   height: auto;
-  border-radius: 20px;
+  border-radius: 0px;
   padding: 40px;
   box-sizing: border-box;
   box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21;
 }
 
 .create-comment>label {
-  color: white;
+  color: rgb(6, 5, 5);
   font-size: 28px;
   text-align: center;
   font-weight: 700;
@@ -952,20 +966,37 @@ h2 {
   border-radius: 16px;
   margin-left: 60px;
   background: #6f5d9c;
-  color: white;
+  color: rgb(11, 11, 11);
+  font-weight: 800;
 }
 
 .comment p {
-  padding: 16px;
+  padding: 10px;
+  color: rgb(11, 11, 11);
+  font-weight: 800;
 }
 
 
 .create-comment>.button:hover {
-  background-color: #41425c;
-  color: white;
-  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  margin: 3rem 0;
+  color: #5e0f0f ;
+  border-radius: 1rem;
 }
 
 .form {
-  width: 400px;
+  width: 600px;
+  color: rgb(11, 11, 11);
+}
+.form .box {
+  width: 100%;
+  font-size: 2rem;
+  margin: 1.2rem 0;
+  border: 0.1rem solid rgba(0, 0, 0, 0.1);
+  border-radius: 0rem;
+  padding: 1rem 1.2rem;
+  color: #444;
+  text-transform: none;
+  color: rgb(11, 11, 11);
 }
