@@ -4,7 +4,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { eventServiceFactory } from './services/eventService';
 import { AuthProvider } from './contexts/AuthContext';
 
-
+import { RouteGuard } from './componets/Guards/RouthGard';
 import Header from "./componets/Header";
 import Home from "./componets/Home";
 import Explore from "./componets/Explore";
@@ -60,17 +60,22 @@ function App() {
 			<>
 				<Header />
 				<Routes>
+					
 					<Route path='/' element={<Home />} />
 					<Route path='/explore' element={<Explore />} />
 					<Route path='/events' element={<Events events={events} />} />
 					<Route path='/about' element={<About />} />
 					<Route path='/contact' element={<Contact />} />
 					<Route path='/login' element={<Login />} />
-					<Route path='/logout' element={<Logout />} />
 					<Route path='/register' element={<Register />} />
-					<Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
 					<Route path='/events/:eventId' element={<Details />} />
+
+					<Route element={<RouteGuard/>}>
 					<Route path='/events/:eventId/edit' element={<Edit onEventEditSubmit={onEventEditSubmit} />} />
+					<Route path='/create' element={<Create onCreateEventSubmit={onCreateEventSubmit} />} />
+					<Route path='/logout' element={<Logout />} />
+					</Route>
+
 				</Routes>
 				<Footer />
 			</>
