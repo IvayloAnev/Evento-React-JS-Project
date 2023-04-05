@@ -1,19 +1,19 @@
 import { useParams, Outlet, Navigate } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 
-import { useGameContext } from "../../contexts/GameContext";
+import { useEventContext } from "../../contexts/EventContext";
 
-export const GameOwner = ({
+export const EventOwner = ({
     children,
 }) => {
-    const { gameId } = useParams();
-    const { getGame } = useGameContext();
+    const { eventId } = useParams();
+    const { getEvent } = useEventContext();
     const { userId } = useAuthContext();
 
-    const currentGame = getGame(gameId);
+    const currentEvent = getEvent(eventId);
 
-    if (currentGame && currentGame._ownerId !== userId) {
-        return <Navigate to={`/catalog/${gameId}`} replace />
+    if (currentEvent && currentEvent._ownerId !== userId) {
+        return <Navigate to={`/catalog/${eventId}`} replace />
     }
 
     return children ? children : <Outlet />

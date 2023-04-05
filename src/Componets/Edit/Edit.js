@@ -5,10 +5,10 @@ import { useParams } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useService } from "../../hooks/useService";
 import { eventServiceFactory } from "../../services/eventService";
+import { useEventContext } from '../../contexts/EventContext';
 
-export default function Edit({
-    onEventEditSubmit,
-}) {
+export default function Edit() {
+    const {onEventEditSubmit} = useEventContext();
     const { eventId } = useParams();
     const eventService = useService(eventServiceFactory);
     const { values, changeHandler, onSubmit, changeValues } = useForm({

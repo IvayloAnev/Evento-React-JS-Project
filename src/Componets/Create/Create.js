@@ -1,10 +1,10 @@
 
+import { useEventContext } from '../../contexts/EventContext';
 import { useForm } from '../../hooks/useForm';
 import styles from './create.module.css'
 
-export default function Create({
-    onCreateEventSubmit,
-}) {
+export default function Create() {
+    const {onCreateEventSubmit} = useEventContext();
     const { values, changeHandler, onSubmit } = useForm({
         name: '',
         imgUrl: '',

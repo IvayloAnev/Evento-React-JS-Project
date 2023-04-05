@@ -1,8 +1,10 @@
+import { useEventContext } from "../../contexts/EventContext"
 import EvenetItem from "./EvenetItem"
 
-export default function Events({
-	events,
-}) {
+export default function Events() {
+
+	const { events } =  useEventContext();
+
 	return (
 		<>
 			<section id="event">

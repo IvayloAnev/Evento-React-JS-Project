@@ -13,11 +13,16 @@ const request = async (method, token, url, data) => {
         }
     }
 
-    if (token) {
-        options.headers = {
-            ...options.headers,
-            'X-Authorization': token,
-        };
+    const serializedAuth = localStorage.getItem('auth');
+    if (serializedAuth) {
+        const auth = JSON.parse(serializedAuth);
+        
+        if (auth.accessToken) {
+            options.headers = {
+                ...options.headers,
+                'X-Authorization': auth.accessToken,
+            };
+        }
     }
 
     const response = await fetch(url, options);
@@ -36,15 +41,6 @@ const request = async (method, token, url, data) => {
 };
 
 export const requestFactory = (token) => {
-    if (!token) {
-        const serializedAuth = localStorage.getItem('auth');
-
-        if (serializedAuth) {
-            const auth = JSON.parse(serializedAuth);
-            token = auth.accessToken;
-        }
-    }
-
     return {
         get: request.bind(null, 'GET', token),
         post: request.bind(null, 'POST', token),
