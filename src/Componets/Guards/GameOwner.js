@@ -3,6 +3,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 
 import { useEventContext } from "../../contexts/EventContext";
 
+//IT CAN BE USED AS GUARD , I WILL NOT USE IT AT THE MOMENT 
 export const EventOwner = ({
     children,
 }) => {

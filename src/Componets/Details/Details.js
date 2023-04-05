@@ -11,10 +11,12 @@ import { useAuthContext } from '../../contexts/AuthContext';
 
 import { AddComment } from './AddComment/AddCommnet';
 import { eventReducer } from '../../reducers/eventReducer';
+import { useEventContext } from '../../contexts/EventContext';
 
 export default function Details() {
     const { eventId } = useParams();
-    const { userId, isAuthenticated, userEmail } = useAuthContext();
+    const { userId, userEmail } = useAuthContext();
+    const {deleteEvent} = useEventContext();
     const [event, dispatch] = useReducer(eventReducer, {});
     const eventService = useService(eventServiceFactory);
     const navigate = useNavigate();
@@ -47,11 +49,16 @@ export default function Details() {
     const isOwner = event._ownerId === userId;
 
     const onDeleteClick = async () => {
-        await eventService.delete(event._id);
+        // eslint-disable-next-line no-restricted-globals
+        const result = confirm(`Are you sure you want to delete ${event.name}`);
 
-        // TODO: delete from state
+        if (result) {
+            await eventService.delete(event._id);
 
-        navigate('/events');
+            deleteEvent(event._id);
+
+            navigate('/events');
+        }
     };
 
     return (
@@ -114,7 +121,7 @@ export default function Details() {
                     <img src={event.imgUrl} />
                 </article>
             </article>
-            { userEmail && <AddComment onCommentSubmit={onCommentSubmit} />}
+            {userEmail && <AddComment onCommentSubmit={onCommentSubmit} />}
         </section >
     )
 }
