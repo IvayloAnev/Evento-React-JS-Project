@@ -1,5 +1,5 @@
 import { useEventContext } from "../../contexts/EventContext"
-import EvenetItem from "./EvenetItem"
+import EventItem from "./EventItem"
 
 export default function Events() {
 
@@ -37,7 +37,7 @@ export default function Events() {
 
 
 											{events.map(x =>
-												<EvenetItem key={x._id} {...x} />
+												<EventItem key={x._id} {...x} />
 											)}
 
 											{events.length === 0 && (
