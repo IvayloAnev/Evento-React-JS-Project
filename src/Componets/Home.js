@@ -16,10 +16,10 @@ export default function Home(){
               alt="slider"
             />
             <div className="carousel-caption">
-              <h2>register for our next event </h2>
-              <h4>full event package only @$199</h4>
-              <a href="#contact">
-                GRAB YOUR TICKETS <i className="fa fa-angle-right" />
+              <h2>Check out our next event </h2>
+              <h4>Place your comment and discusse it with mates</h4>
+              <a href="/events">
+                 <i className="fa fa-angle-right" />
               </a>
             </div>
           </div>
