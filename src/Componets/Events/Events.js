@@ -17,20 +17,20 @@ export default function Events() {
 								data-interval="false"
 							>
 								<h2 className="heading">THE ROCKING EVENTS</h2>
-								<a
+								{/*<a
 									className="even-control-left"
 									href="#event-carousel"
 									data-slide="prev"
 								>
 									<i className="fa fa-angle-left" />
-								</a>
-								<a
+								</a>*/}
+								{/*<a
 									className="even-control-right"
 									href="#event-carousel"
 									data-slide="next"
 								>
 									<i className="fa fa-angle-right" />
-								</a>
+								</a>*/}
 								<div className="carousel-inner">
 									<div className="item active">
 										<div className="row">
