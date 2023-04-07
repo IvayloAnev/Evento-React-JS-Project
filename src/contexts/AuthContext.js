@@ -15,6 +15,10 @@ export const AuthProvider = ({
     const authService = authServiceFactory(auth.accessToken)
 
     const onLoginSubmit = async (data) => {
+        if(data.email == '' || data.password == ''){
+            alert("All fields are required!");
+            return;
+        }
         try {
             const result = await authService.login(data);
 
