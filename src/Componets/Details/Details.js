@@ -16,7 +16,7 @@ import { useEventContext } from '../../contexts/EventContext';
 export default function Details() {
     const { eventId } = useParams();
     const { userId, userEmail } = useAuthContext();
-    const {deleteEvent} = useEventContext();
+    const { deleteEvent } = useEventContext();
     const [event, dispatch] = useReducer(eventReducer, {});
     const eventService = useService(eventServiceFactory);
     const navigate = useNavigate();
@@ -93,11 +93,11 @@ export default function Details() {
                     {!isOwner && userEmail && (
                         <div className={styles["buttons"]}>
                             {/* logged in user who has not yet wished book*/}
-                            <a href="#" className={styles["btn-wish"]}>
+                            {/*<a href="#" className={styles["btn-wish"]}>
                                 Book a ticket
-                            </a>
-                            {/* logged in user who has already wished book*/}
-                            <p className={styles["wish-pub"]}>You already have booked your ticket</p>
+                            </a>*/}
+                            {/*logged in user who has already wished book*/}
+                            {/*<p className={styles["wish-pub"]}>You already have booked your ticket</p>*/}
                         </div>
                     )}
 
