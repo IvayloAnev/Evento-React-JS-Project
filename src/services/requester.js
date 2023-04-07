@@ -40,7 +40,7 @@ const requester = async (method, url, data) => {
     return result;
 };
 
-export const requestFactory = (token) => {
+export const requestFactory = () => {
     return {
         get: requester.bind(null, 'GET'),
         post: requester.bind(null, 'POST'),

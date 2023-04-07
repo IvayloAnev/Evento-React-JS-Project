@@ -1,9 +1,12 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthContext';
+import { useEventContext } from "../contexts/EventContext"
+
 
 export default function Header() {
   const { isAuthenticated, userEmail } = useContext(AuthContext);
+  const { events } = useEventContext();
 
   return (
     <>
@@ -54,9 +57,15 @@ export default function Header() {
 
                     <Link to="/">Home</Link>
                   </li>
-                  <li className="scroll">
-                    <Link to="/explore">Explore</Link>
-                  </li>
+
+                  {events.length != 0 && (
+                    <li className="scroll">
+                      <Link to="/explore">Explore</Link>
+                    </li>
+
+                  )}
+
+
                   <li className="scroll">
                     <Link to="/events">Events</Link>
                   </li>
