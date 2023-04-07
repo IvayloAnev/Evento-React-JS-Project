@@ -20,11 +20,21 @@ export const EventProvider = ({
     }, []);
 
     const onCreateEventSubmit = async (data) => {
-        const newEvent = await eventService.create(data);
 
-        setEvents(state => [...state, newEvent]);
+        if(!data.imgUrl.startsWith("https://")){
+            alert("Please enter a valid URL address");
+        }else{
+            try{
+                const newEvent = await eventService.create(data);
+        
+                setEvents(state => [...state, newEvent]);
+        
+                navigate('/events');
+            }catch(err){
+                alert(err);
+            }
+        }
 
-        navigate('/events');
     };
 
     const onEventEditSubmit = async (values) => {
