@@ -91,9 +91,9 @@ export default function Exlore() {
             </div>
           </div>
           <div className="cart">
-            <a href="#">
-              <i className="fa fa-shopping-cart" /> <span>Purchase Tickets</span>
-            </a>
+            {/*<a href={`/events/${closest._id}`}>
+              <i className="fa fa-shopping-cart" /> <span>Ad Comments</span>
+            </a>*/}
           </div>
         </div>
 
