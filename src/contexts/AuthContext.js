@@ -38,6 +38,9 @@ export const AuthProvider = ({
         }else if(!/^[A-Za-z0-9+_.-]+@(.+)$/.test( values.email)){
             alert("Invalid email adress");
             return;
+        }else if(values.email == '' || values.password == '' || values.confirmPassword == ''){
+            alert("All fields are required!");
+            return;
         }
 
         try {
