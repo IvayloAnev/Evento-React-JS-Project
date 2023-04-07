@@ -29,6 +29,10 @@ export const AuthProvider = ({
     const onRegisterSubmit = async (values) => {
         const { confirmPassword, ...registerData } = values;
         if (confirmPassword !== registerData.password) {
+            alert("Invalid data provided!");
+            return;
+        }else if(!/^[A-Za-z0-9+_.-]+@(.+)$/.test( values.email)){
+            alert("Invalid email adress");
             return;
         }
 
@@ -42,6 +46,7 @@ export const AuthProvider = ({
             console.log('There is a problem');
         }
     };
+    
 
     const onLogout = async () => {
         await authService.logout();

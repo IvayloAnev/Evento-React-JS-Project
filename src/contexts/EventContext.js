@@ -26,9 +26,7 @@ export const EventProvider = ({
         }else{
             try{
                 const newEvent = await eventService.create(data);
-        
                 setEvents(state => [...state, newEvent]);
-        
                 navigate('/events');
             }catch(err){
                 alert(err);
