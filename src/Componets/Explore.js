@@ -13,12 +13,13 @@ export default function Exlore() {
     });
 
   const processDateString = (dateString) => {
-    const [date, month, year] = dateString.split(/\-/g).map(Number);
+    const [date, month, year] = dateString.split('-').map(Number);
     return new Date(year, month - 1, date);
   };
 
   const closest = findClosest(events, ({ date }) => processDateString(date));
-
+  console.log(closest);
+  
   const deadline = closest.date;
   //console.log(deadline);
 
