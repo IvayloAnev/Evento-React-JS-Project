@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../contexts/AuthContext';
-import { useEventContext } from "../contexts/EventContext"
+import { AuthContext } from '../../contexts/AuthContext';
+import { useEventContext } from "../../contexts/EventContext"
 
 
 export default function Header() {
@@ -58,8 +58,6 @@ export default function Header() {
                     <Link to="/">Home</Link>
                   </li>
 
-
-
                   <li className="scroll">
                     <Link to="/events">Events</Link>
                   </li>
@@ -73,12 +71,10 @@ export default function Header() {
                     </li>
                   )}
 
-
                   {events.length != 0 && (
                     <li className="scroll">
                       <Link to="/explore">Explore</Link>
                     </li>
-
                   )}
 
                   <li className="scroll">
@@ -91,14 +87,11 @@ export default function Header() {
                     </li>
                   )}
 
-
-
                   {!userEmail && (
                     <li className="no-scroll">
                       <Link to="/register">Register</Link>
                     </li>
                   )}
-
 
                   {!userEmail && (
                     <li className="no-scroll">
@@ -114,10 +107,6 @@ export default function Header() {
 
                 </ul>
               </div>
-
-
-
-
 
             </div>
           </div>

@@ -1,10 +1,13 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import { authServiceFactory } from '../services/authService';
 
 export const AuthContext = createContext();
+
+ //AuthProvider is a component, taking logic from App.js and put it here 
+ //Provide and manage the state
 
 export const AuthProvider = ({
     children,
@@ -15,7 +18,7 @@ export const AuthProvider = ({
     const authService = authServiceFactory(auth.accessToken)
 
     const onLoginSubmit = async (data) => {
-        if(data.email == '' || data.password == ''){
+        if(data.email === '' || data.password === ''){
             alert("All fields are required!");
             return;
         }
@@ -38,7 +41,7 @@ export const AuthProvider = ({
         }else if(!/^[A-Za-z0-9+_.-]+@(.+)$/.test( values.email)){
             alert("Invalid email adress");
             return;
-        }else if(values.email == '' || values.password == '' || values.confirmPassword == ''){
+        }else if(values.email === '' || values.password === '' || values.confirmPassword === ''){
             alert("All fields are required!");
             return;
         }

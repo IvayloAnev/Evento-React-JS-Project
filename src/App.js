@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext';
 import { EventProvider } from './contexts/EventContext';
 
-import Header from "./componets/Header";
+import Header from './componets/Header/Header';
 import Home from "./componets/Home";
 import Explore from "./componets/Explore";
 import About from "./componets/About";

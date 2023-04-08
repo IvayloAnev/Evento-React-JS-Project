@@ -19,7 +19,7 @@ export default function Exlore() {
 
   const closest = findClosest(events, ({ date }) => processDateString(date));
   console.log(closest);
-  
+
   const deadline = closest.date;
   //console.log(deadline);
 
@@ -46,7 +46,7 @@ export default function Exlore() {
     const interval = setInterval(() => getTime(deadline), 1000);
     //console.log(interval)
     return () => clearInterval(interval);
-  }, []);
+  }, [deadline , getTime]);
 
 
 
