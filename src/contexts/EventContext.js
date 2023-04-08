@@ -23,6 +23,10 @@ export const EventProvider = ({
 
         if(!data.imgUrl.startsWith("https://")){
             alert("Please enter a valid URL address");
+            return;
+        }else if(!/([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))/.test( data.date)){
+            alert("Please enter valid date format YYYY-MM-DD !");
+            return;
         }else{
             try{
                 const newEvent = await eventService.create(data);
@@ -37,7 +41,7 @@ export const EventProvider = ({
 
     const onEventEditSubmit = async (values) => {
         const result = await eventService.edit(values._id, values);
-
+        
         setEvents(state => state.map(x => x._id === values._id ? result : x))
 
         navigate(`/events/${values._id}`);

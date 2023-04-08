@@ -58,12 +58,6 @@ export default function Header() {
                     <Link to="/">Home</Link>
                   </li>
 
-                  {events.length != 0 && (
-                    <li className="scroll">
-                      <Link to="/explore">Explore</Link>
-                    </li>
-
-                  )}
 
 
                   <li className="scroll">
@@ -72,9 +66,6 @@ export default function Header() {
                   <li className="scroll">
                     <Link to="/about">About</Link>
                   </li>
-                  <li className="scroll">
-                    <Link to="/contact">Contact</Link>
-                  </li>
 
                   {userEmail && (
                     <li className="no-scroll">
@@ -82,6 +73,17 @@ export default function Header() {
                     </li>
                   )}
 
+
+                  {events.length != 0 && (
+                    <li className="scroll">
+                      <Link to="/explore">Explore</Link>
+                    </li>
+
+                  )}
+
+                  <li className="scroll">
+                    <Link to="/contact">Contact</Link>
+                  </li>
 
                   {userEmail && (
                     <li className="no-scroll">

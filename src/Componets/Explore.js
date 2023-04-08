@@ -5,22 +5,22 @@ export default function Exlore() {
 
   const { events } = useEventContext();
 
-   const findClosest = (data, accessor, target = Date.now()) =>
-     data.reduce((prev, curr) => {
-       const a = Math.abs(accessor(curr).getTime() - target);
-       const b = Math.abs(accessor(prev).getTime() - target);
-       return a - b < 0 ? curr : prev;
-     });
+  const findClosest = (data, accessor, target = Date.now()) =>
+    data.reduce((prev, curr) => {
+      const a = Math.abs(accessor(curr).getTime() - target);
+      const b = Math.abs(accessor(prev).getTime() - target);
+      return a - b < 0 ? curr : prev;
+    });
 
-   const processDateString = (dateString) => {
-     const [date, month, year] = dateString.split(/\//g).map(Number);
-     return new Date(year, month - 1, date);
-   };
+  const processDateString = (dateString) => {
+    const [date, month, year] = dateString.split(/\-/g).map(Number);
+    return new Date(year, month - 1, date);
+  };
 
-   const closest = findClosest(events, ({ date }) => processDateString(date));
-   
-   const deadline = closest.date;
+  const closest = findClosest(events, ({ date }) => processDateString(date));
 
+  const deadline = closest.date;
+  //console.log(deadline);
 
 
   const [days, setDays] = useState(0);
@@ -29,19 +29,21 @@ export default function Exlore() {
   const [seconds, setSeconds] = useState(0);
 
 
-  const getTime = () => {
-    const time = Date.parse(deadline) - Date.now();
+   const getTime = () => {
+     const time = Date.parse(deadline) - Date.now();
+     //console.log(Date.parse(deadline));
+     //console.log(Date.now())
 
+     setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
+     setMinutes(Math.floor((time / 1000 / 60) % 60));
+     setSeconds(Math.floor((time / 1000) % 60));
+   };
 
-    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
-    setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
-    setMinutes(Math.floor((time / 1000 / 60) % 60));
-    setSeconds(Math.floor((time / 1000) % 60));
-  };
 
   useEffect(() => {
     const interval = setInterval(() => getTime(deadline), 1000);
-
+    //console.log(interval)
     return () => clearInterval(interval);
   }, []);
 
